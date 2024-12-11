@@ -1,7 +1,6 @@
 from math import inf, ceil
 
 def orientation(p,q,r):
-	if (p == q) or (q == r) or (p==r): return 0
 	s=(q[0] - p[0])*(r[1] - p[1]) - (r[0] - p[0])*(q[1] - p[1])
 	return 0 if s==0else 1 if s>0 else -1
 
@@ -79,8 +78,9 @@ def getCandidateLinear(pt, P):
 	return None
 
 def getCandidateLog( p, hull):
-	"""Return the index of the point in hull that the right tangent line from p
+	"""Return the point in hull that the right tangent line from p
 	to hull touches.
+ 	Code based of code by Tom Switzer, see:  https://gist.github.com/tixxit/252229
 	"""
 	l, r = 0, len(hull)
 	l_prev = orientation(p, hull[0], hull[-1])
